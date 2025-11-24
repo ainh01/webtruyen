@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  backend:
+    image: api_datatruyen
+    container_name: backend-2nd-container
+    ports:
+      - "8080:8000"
+    environment:
+      # It is best practice to quote strings with special characters in YAML
+      - MONGODB_DATA_API=mongodb+srv://ainh01:Bb1234567890!@ainh.global.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000
+      - MONGODB_DATA_DB=CNPM_truyentranh_db
+      - EXTERNAL_API=http://134.185.90.103/
+      - IMAGE_API=https://sv1.otruyencdn.com/v1/api/
+    # Optional: ensure it restarts automatically if it crashes
+    restart: unless-stopped

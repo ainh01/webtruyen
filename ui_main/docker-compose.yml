@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  backend:
+    image: ui_main
+    container_name: ui-main
+    ports:
+      - "3000:3000"
+    environment:
+      # Use key: value format to avoid quote parsing issues
+      - VITE_API_BASE_URL=http://134.185.90.103:8080/
+      - VITE_OTRUYEN_API_BASE_URL=http://134.185.90.103:80/
+      - VITE_APP_ENV=development
+    restart: unless-stopped
